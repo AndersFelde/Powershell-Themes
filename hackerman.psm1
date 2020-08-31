@@ -28,8 +28,9 @@ function Write-Theme {
         if ($user -eq "ander") {
             $user = "anders"
         }
-        $prompt += Write-Prompt -Object "$user" -ForegroundColor red -BackgroundColor $sl.Colors.SessionInfoBackgroundColor
-        $prompt += Write-Prompt -Object "@$computer " -ForegroundColor $sl.Colors.SessionInfoForegroundColor -BackgroundColor $sl.Colors.SessionInfoBackgroundColor
+        $prompt += Write-Prompt -Object " $user" -ForegroundColor darkYellow -BackgroundColor black
+        # $prompt += Write-Prompt -Object "$($sl.PromptSymbols.SegmentForwardSymbol) " -ForegroundColor magenta -BackgroundColor cyan
+        $prompt += Write-Prompt -Object "@$computer " -ForegroundColor darkyellow -BackgroundColor black
     }
 
     if (Test-VirtualEnv) {
@@ -38,7 +39,7 @@ function Write-Theme {
         $prompt += Write-Prompt -Object "$($sl.PromptSymbols.SegmentForwardSymbol) " -ForegroundColor $sl.Colors.VirtualEnvBackgroundColor -BackgroundColor $sl.Colors.PromptBackgroundColor
     }
     else {
-        $prompt += Write-Prompt -Object "$($sl.PromptSymbols.SegmentForwardSymbol) " -ForegroundColor $sl.Colors.SessionInfoBackgroundColor -BackgroundColor $sl.Colors.PromptBackgroundColor
+        $prompt += Write-Prompt -Object "$($sl.PromptSymbols.SegmentForwardSymbol) " -ForegroundColor black -BackgroundColor $sl.Colors.PromptBackgroundColor
     }
 
     # Writes the drive portion
