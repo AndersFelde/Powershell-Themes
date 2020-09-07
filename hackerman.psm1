@@ -56,8 +56,9 @@ function Write-Theme {
     # Writes the postfix to the prompt
     $prompt += Write-Prompt -Object $sl.PromptSymbols.SegmentForwardSymbol -ForegroundColor $lastColor
 
+    $clock = [char]::ConvertFromUtf32(0x1F552)
     $timeStamp = Get-Date -UFormat %R
-    $timestamp = "$timeStamp "
+    $timestamp = "$clock $timeStamp "
 
     $prompt += Set-CursorForRightBlockWrite -textLength ($timestamp.Length + 1)
     $prompt += Write-Prompt -Object "$($sl.PromptSymbols.SegmentForwardSymbol) " -ForegroundColor $sl.Colors.SessionInfoBackgroundColor -BackgroundColor $sl.Colors.PromptBackgroundColor
